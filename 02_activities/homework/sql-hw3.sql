@@ -65,7 +65,7 @@ DROP TABLE IF EXISTS temp.new_vendor
 ;
 
 -- Create a temporary table based on the original vendor table
-CREATE TEMPORARY TABLE temp.new_vendor AS
+CREATE TEMP TABLE IF NOT EXISTS temp.new_vendor AS
 SELECT * FROM vendor
 ;
 
