@@ -83,6 +83,9 @@ VALUES (10,
 		'Rosenthal')
 ;
 
+-- Call the table and check if the 10th vendor info added to the new_vendor table
+SELECT * FROM new_vendor;
+
 
 
 -- Date
