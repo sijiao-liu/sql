@@ -6,14 +6,17 @@ Create a logical model for a small bookstore. 📚
 
 At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [_Draw.io_](https://www.drawio.com/) or [_LucidChart_](https://www.lucidchart.com/pages/).
 
+```
 ![sql assignment - question 1](./sql-assignment-q1.jpg)
+```
 
 
 ## Question 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
 
+```
 ![sql assignment - question 2](./sql-assignment-q2.jpg)
-
+```
 
 ## Question 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2?
@@ -22,7 +25,28 @@ _Hint, search type 1 vs type 2 slowly changing dimensions._
 
 Bonus: Are there privacy implications to this, why or why not?
 ```
-Your answer...
+### Type 1 and Type 2 Slowly Changing Dimensions (SCD)
+In data warehousing, Slowly Changing Dimensions (SCD) refer to how changes in dimensional data, such as a customer’s address, are handled. There are two common approaches: Type 1 (overwrite) and Type 2 (retain history).
+- _**Type 1:**_ This method overwrites the existing value with the new value and does not retain history.
+    + This approach is simpler but doesn't retain historical changes. It is best suited when historical address changes are not important.
+- _**Type 2:**_ This method adds a new row for the new value and maintains the existing row for historical and reporting purposes.
+    + This is more complex but useful if you need to track historical customer addresses.
+
+![sql assignment - question 3](./sql-assignment-q3.jpg)
+
+
+### Privacy Implications
+Yes, there are **privacy implications** related to retaining address history in the Type 2 approach.
+
+- **Data Retention:** By retaining all historical addresses, the business holds more data about customers, including past locations. This can raise concerns about how long the data is stored, especially if customers do not expect their old addresses to be kept indefinitely.
+
+- **Data Accuracy:** Over time, old addresses may no longer be valid or relevant. Retaining them in the system could lead to errors, such as sending communications/orders to outdated addresses.
+
+- **Security:** Storing more sensitive information (like addresses) increases the risk in case of data breaches. Businesses need to ensure that proper encryption and security measures are in place.
+
+- **Compliance:** Privacy regulations such as GDPR or CCPA may require businesses to delete or anonymize customer data upon request. In the case of Type 2 SCD, businesses must ensure they have processes to remove or mask old addresses if a customer requests it.
+
+In contrast, Type 1 SCD, which overwrites old data, generally has fewer privacy concerns because it only retains the most recent address. However, companies should still handle this data with care to avoid unauthorized access or misuse.
 ```
 
 ## Question 4
