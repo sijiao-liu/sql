@@ -6,17 +6,14 @@ Create a logical model for a small bookstore. 📚
 
 At the minimum it should have employee, order, sales, customer, and book entities (tables). Determine sensible column and table design based on what you know about these concepts. Keep it simple, but work out sensible relationships to keep tables reasonably sized. Include a date table. There are several tools online you can use, I'd recommend [_Draw.io_](https://www.drawio.com/) or [_LucidChart_](https://www.lucidchart.com/pages/).
 
-```
 ![sql assignment - question 1](./sql-assignment-q1.jpg)
-```
 
 
 ## Question 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
 
-```
 ![sql assignment - question 2](./sql-assignment-q2.jpg)
-```
+
 
 ## Question 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2?
@@ -24,7 +21,7 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 _Hint, search type 1 vs type 2 slowly changing dimensions._
 
 Bonus: Are there privacy implications to this, why or why not?
-```
+
 ### Type 1 and Type 2 Slowly Changing Dimensions (SCD)
 In data warehousing, Slowly Changing Dimensions (SCD) refer to how changes in dimensional data, such as a customer’s address, are handled. There are two common approaches: Type 1 (overwrite) and Type 2 (retain history).
 - _**Type 1:**_ This method overwrites the existing value with the new value and does not retain history.
@@ -47,7 +44,7 @@ Yes, there are **privacy implications** related to retaining address history in 
 - **Compliance:** Privacy regulations such as GDPR or CCPA may require businesses to delete or anonymize customer data upon request. In the case of Type 2 SCD, businesses must ensure they have processes to remove or mask old addresses if a customer requests it.
 
 In contrast, Type 1 SCD, which overwrites old data, generally has fewer privacy concerns because it only retains the most recent address. However, companies should still handle this data with care to avoid unauthorized access or misuse.
-```
+
 
 ## Question 4
 Review the AdventureWorks Schema [here](https://imgur.com/a/u0m8fX6)
