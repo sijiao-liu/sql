@@ -50,9 +50,18 @@ In contrast, Type 1 SCD, which overwrites old data, generally has fewer privacy 
 Review the AdventureWorks Schema [here](https://imgur.com/a/u0m8fX6)
 
 Highlight at least two differences between it and your ERD. Would you change anything in yours?
-```
-Your answer...
-```
+
+### Difference 1
+The AdventureWorks OLTP schema is divided into six sections: Sales, Purchasing, Person, Production, Human Resources, and dbo, each represented by a different background color to reflect the schema's complexity. Each section has a main table containing aggregate information, supported by detailed tables for specific items listed in the main table.
+
+In contrast, the bookstore ERD is much simpler, with fewer sections and a straightforward structure. It focuses on core entities like customers, orders, books, and sales, without the need for extensive data aggregation or detailed tables.
+
+
+### Difference 2
+In the AdventureWorks OLTP schema, foreign keys (FK) and unique constraints (U1, U2, U3) are explicitly identified. The foreign keys enforce referential integrity, while the unique constraints ensure data uniqueness across various columns.
+
+In contrast, the Bookstore ERD doesn't explicitly display foreign keys or unique constraints. While adding FK relationships would improve clarity and enforce referential integrity in the ERD, the unique constraints may not be as critical due to the simpler structure of the Bookstore ERD.
+
 
 # Criteria
 
